@@ -8,7 +8,7 @@ app.use(express.json());
 
 
 // GET GENERAL 
-app.get('/prestamos', (res) => {
+app.get('/prestamos', (req, res) => {
   db.query('SELECT * FROM prestamos', (err, results) => {
     if(err){
       console.log("Error al hacer la consulta", err)
@@ -111,7 +111,7 @@ app.get('/prestamos/usuario/:id_usuario', (req, res) => {
 })
 
 // GET prestamos ACTIVOS
-app.get('/prestamos/estado/activo', (res) => {
+app.get('/prestamos/estado/activo', (req, res) => {
   db.query('SELECT * FROM prestamos WHERE estado = ?', ['activo'], (err, result) => {
     if (err) {
       return res.status(500).json({ error: 'Error al buscar los préstamos activos' });
@@ -122,3 +122,33 @@ app.get('/prestamos/estado/activo', (res) => {
     });
   });
 });
+
+// GET usuarios
+app.get('/usuarios', (req, res) => {
+  db.query('SELECT * FROM usuarios', (err, result) => {
+    if (err) {
+      return res.status(500).json({ error: 'Error al buscar los usuarios' });
+    }
+     res.json(result)
+  });
+});
+
+//GET ibros 
+app.get ('/libros', (req, res) => {
+  db.query('SELECT * FROM libros', (err, result) => {
+    if (err) {
+      return res.status(500).json({ error: 'Error al buscar los libros' });
+    }
+    res.json(result)
+  })
+})
+
+// GET autores
+app.get ('/autores', (req, res) => {
+  db.query('SELECT * FROM autores', (err, result) => {
+    if (err) {
+      return res.status(500).json({ error: 'Error al buscar los autores' });
+    }
+    res.json(result)
+  })
+})

@@ -1,0 +1,68 @@
+/* Estilos generales */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Sección principal */
+.landing {
+  height: 100vh;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+/* Contenido dentro del landing */
+.landing-content {
+  max-width: 500px;
+}
+
+/* Título */
+.landing-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Párrafo */
+.landing-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Botones */
+.landing-buttons a {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+/* Botón primario */
+.btn.primary {
+  background-color: #ffffff;
+  color: #1e3c72;
+  font-weight: bold;
+}
+
+.btn.primary:hover {
+  background-color: #e0e0e0;
+}
+
+/* Botón secundario */
+.btn.secondary {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.btn.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}

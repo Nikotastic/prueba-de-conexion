@@ -1,0 +1,43 @@
+.center {
+    text-align: center;
+    height: 89vh;
+    padding: 40px;
+    background-color: #a9adf0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+
+}
+
+.center h1 {
+    font-size: 2.5rem;
+    color: #dc3545;
+    font-weight: bold;
+    text-align: center;
+
+
+}
+
+.center p {
+    font-size: 1.1rem;
+   
+
+}
+
+.center a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.center a:hover {
+    background-color: #0056b3;
+}
