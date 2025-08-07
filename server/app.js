@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express()
 const db = require('./scripts/db');
-/* const cors = require('cors'); */
+const cors = require('cors');
 
-/* app.use(cors()); */ // Habilita que el frontend pueda hacer peticiones
+app.use(cors()); // Habilita que el frontend pueda hacer peticiones
 app.use(express.json());
 
 
