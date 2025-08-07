@@ -20,8 +20,8 @@ El proyecto está dividido en dos partes principales:
 1.  **Clona el repositorio:**
 
     ```bash
-    git clone <URL-DEL-REPOSITORIO>
-    cd <NOMBRE-DEL-PROYECTO>
+    git clone <https://github.com/Nikotastic/prueba-de-conexion.git>
+    cd <https://github.com/Nikotastic/prueba-de-conexion.git>
     ```
 
 2.  **Configura la base de datos:**
