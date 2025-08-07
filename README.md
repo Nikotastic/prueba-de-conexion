@@ -1,0 +1,1 @@
+para insertar hay que ir a la carpeta seeders y ejecutar el archivo autores.js uno por uno
