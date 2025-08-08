@@ -130,6 +130,48 @@ app.get('/usuarios', (req, res) => {
   });
 });
 
+// CREAR USUARIO
+app.post('/usuarios', (req, res) => {
+  const {id_usuario, nombre_completo, numero_identificacion, correo, telefono} = req.body;
+  db.query('INSERT INTO usuarios (id_usuario, nombre_completo, numero_identificacion, correo, telefono) VALUES (?, ?, ?, ?, ?)', [id_usuario, nombre_completo, numero_identificacion, correo, telefono], (err, data) => {
+    if (err) {
+      return res.status(500).json({ error: 'Error al crear el usuario' });
+    }
+    res.json({
+      mensaje: 'Usuario creado',
+    });
+  })
+})
+
+// UPDATE USUARIO
+app.put('/usuarios/:id_usuario', (req, res) => {  
+  const {nombre_completo, numero_identificacion, correo, telefono} = req.body;
+  const {id_usuario} = req.params;
+  db.query('UPDATE usuarios SET nombre_completo = ?, numero_identificacion = ?, correo = ?, telefono = ? WHERE id_usuario = ?', [nombre_completo, numero_identificacion, correo, telefono, id_usuario], (err, data) => {
+    if (err) {
+      return res.status(500).json({error: 'Error al actualizar el usuario'})
+    } 
+    res.json({
+      mensaje: 'Usuario actualizado',
+      data
+    })
+  })
+})
+
+// DELETE USUARIO
+app.delete('/usuarios/:id_usuario', (req,res) => {
+  const {id_usuario} = req.params;
+  db.query('DELETE FROM usuarios WHERE id_usuario = ?', [id_usuario], (err, data) => {
+    if (err) {
+      return res.status(500).json({error: 'Error al eliminar el usuario'})
+    } 
+    res.json({
+      mensaje: 'Usuario eliminado',
+      data
+    })
+  })
+})
+
 //GET LIBROS
 app.get ('/libros', (req, res) => {
   db.query('SELECT * FROM libros', (err, data) => {
@@ -139,6 +181,7 @@ app.get ('/libros', (req, res) => {
     res.json(data)
   })
 })
+
 
 // GET AUTORES
 app.get ('/autores', (req, res) => {
