@@ -18,7 +18,7 @@ function renderPrestamosTable(prestamos, container) {
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>ID Usuario</th>
+                    <th>Nombre</th>
                     <th>ISBN</th>
                     <th>Fecha Préstamo</th>
                     <th>Fecha Devolución</th>
@@ -33,7 +33,7 @@ function renderPrestamosTable(prestamos, container) {
             tableHTML += `
                 <tr>
                     <td>${p.id_prestamo}</td>
-                    <td>${p.id_usuario}</td>
+                    <td>${p.nombre_completo}</td>
                     <td>${p.isbn}</td>
                     <td>${new Date(p.fecha_prestamo).toLocaleDateString()}</td>
                     <td>${new Date(p.fecha_devolucion).toLocaleDateString()}</td>

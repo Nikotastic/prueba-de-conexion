@@ -9,7 +9,7 @@ app.use(express.json());
 
 // GET PRESTAMOS
 app.get('/prestamos', (req, res) => {
-  db.query('SELECT * FROM prestamos', (err, datas) => {
+  db.query('SELECT p.*, u.nombre_completo FROM prestamos as p JOIN usuarios as u ON p.id_usuario = u.id_usuario; ', (err, datas) => {
     if(err){
       console.log("Error al hacer la consulta", err)
       res.status(500).json({error: 'Error en el servidor'})
@@ -215,14 +215,24 @@ app.get('/usuarios/prestamos/retrasados', (req, res) => {
 
 // GET HISTORIAL DE LIBRO POR ISBN
 app.get('/libros/historial/:isbn', (req, res) => {
-  const {isbn} = req.params;
-  db.query('SELECT * FROM historial WHERE isbn = ?', [isbn], (err, data) => {
-    if (err) {
-      return res.status(500).json({ error: 'Error al buscar el historial del libro' });
+  const { isbn } = req.params;
+  
+  db.query(
+    `SELECT libros.titulo, COUNT(prestamos.id_prestamo) AS total_prestados 
+     FROM libros 
+     JOIN prestamos ON libros.isbn = prestamos.isbn 
+     WHERE libros.isbn = ?
+     GROUP BY libros.titulo`, 
+    [isbn], 
+    (err, data) => {
+      if (err) {
+        return res.status(500).json({ error: 'Error al buscar el historial del libro' });
+      }
+      res.json(data);
     }
-    res.json(data)
-  })
-})
+  );
+});
+
 
 app.listen(3000, () => {
   console.log('Servidor corriendo en http://localhost:3000');
