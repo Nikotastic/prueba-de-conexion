@@ -11,7 +11,7 @@ El proyecto está dividido en dos partes principales:
 
 ## Requisitos Previos
 
-- [Node.js](https://nodejs.org/) (versión 14 o superior)
+- [Node.js](https://nodejs.org/) (versión 20 o superior)
 - [NPM](https://www.npmjs.com/)
 - Un servidor de base de datos MySQL en ejecución.
 
@@ -85,7 +85,6 @@ Debes instalar las dependencias y ejecutar el backend y el frontend por separado
 -   `cors`: Para habilitar las solicitudes de origen cruzado (CORS).
 -   `csv-parser`: Para procesar archivos CSV (si es necesario para la carga de datos).
 -   `express`: Framework web para Node.js.
--   `mysql`: Cliente de MySQL para Node.js.
 -   `mysql2`: Cliente de MySQL para Node.js, compatible con `async/await`.
 
 ### Frontend (`client/package.json`)
