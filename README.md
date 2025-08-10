@@ -106,6 +106,7 @@ Debes instalar las dependencias y ejecutar el backend y el frontend por separado
 
 -   `cors`: Para habilitar las solicitudes de origen cruzado (CORS).
 -   `csv-parser`: Para procesar archivos CSV (si es necesario para la carga de datos).
+-   `dotenv`: Para cargar variables de entorno desde un archivo `.env`.
 -   `express`: Framework web para Node.js.
 -   `mysql2`: Cliente de MySQL para Node.js, compatible con `async/await`.
 
