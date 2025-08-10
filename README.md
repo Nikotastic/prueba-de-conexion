@@ -24,11 +24,33 @@ El proyecto está dividido en dos partes principales:
     cd <https://github.com/Nikotastic/prueba-de-conexion.git>
     ```
 
-2.  **Configura la base de datos:**
+2.  **Configura las variables de entorno:**
+
+    -   En la raíz del proyecto, crea un archivo llamado `.env`.
+    -   Añade las siguientes variables de entorno a tu archivo `.env` con tus credenciales de la base de datos:
+
+        ```
+        DB_HOST=localhost
+        DB_USER=root
+        DB_PASSWORD=tu_contraseña
+        DB_DATABASE=biblioteca
+        ```
+
+3.  **Configura la base de datos:**
 
     -   Asegúrate de que tu servidor MySQL esté en funcionamiento.
     -   Importa el archivo `docs/base de datos biblioteca.sql` en tu base de datos para crear las tablas necesarias.
-    -   Actualiza las credenciales de la base de datos en `server/scripts/db.js` si es necesario.
+
+4.  **Ejecuta los seeders para poblar la base de datos:**
+
+    -   Para poblar la base de datos con datos iniciales, debes ejecutar los archivos de seeder uno por uno. Navega a la carpeta `server/seeders` y ejecuta los siguientes comandos en orden:
+
+        ```bash
+        node autores.js
+        node usuarios.js
+        node libros.js
+        node prestamos.js
+        ```
 
 ## Instalación y Ejecución
 
